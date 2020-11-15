@@ -10,7 +10,7 @@ You can read the detailed problem statement [here](actual URL to navigate)
 
 
 
-**How to run the code.
+**How to run the code.**
 
 *Clone the project on your local machine*
 git clone ...
@@ -18,6 +18,6 @@ git clone ...
 npm install
 *Run the code*
 
-**What to expect.
+**What to expect.**
 
 
