@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import { JsonRpc } from 'eosjs'
+//import "./accordion.css";
+import "../../index.css";
+import Accordion from "../../components/Accordion";
+
 
 const api = new JsonRpc('https://eos.greymass.com')
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 async function delay(fn, ...args) {
-  // await timeout(1000)
+  await timeout(1000)
   return fn(...args)
 }
 
 const getBlockId = async () => {
   try {
     const blockInfo = await api.get_info()
-    return blockInfo.head_block_num
+    console.log(blockInfo.head_block_id)
+    return blockInfo.head_block_id
   } catch (err) {
     throw err.message
   }
@@ -37,14 +42,17 @@ function List(props) {
     setBlocks([])
     let length = 10
     let data = []
+    
 
+    let blkId;
     while (length--) {
       await delay(async () => {
-        let blkId;
+        //let blkId;
         if (!data.length) {
           blkId = await getBlockId()
           const block = await getBlockInfo(blkId)
           data.unshift(block)
+          console.log(data)
         }
         else {
           blkId = data[data.length - 1].previous
@@ -60,36 +68,44 @@ function List(props) {
 
   return (
     <div>
+      <br></br> <br></br>
       <button className="fetch-button" onClick={fetchData}>
-        Fetch Data
+       Load Data 
       </button>
+      <br></br> <br></br> <br></br>
       {show && <DisplayBlocks blocks={blocks} />}
     </div>
   )
 }
 
-function DisplayBlocks(props) {
+ function DisplayBlocks(props) {
   const blocks = props.blocks
   let data = '';
 
   const displayExtraData = (block) => {
     console.log(block)
     data = JSON.stringify(block)
-    alert(data)
+    console.log(data);
+    //alert(data);
   }
 
-  const list = blocks.map(e =>
-    <li key={e.id} onClick={displayExtraData.bind(null, e)}>
-      {e.producer} - {e.id}
-    </li>
-  )
+    const Accor = blocks.map(e =>
+   
+    <Accordion
+    title={e.id}
+    content={JSON.stringify(e)}
+    >
+    
+    </Accordion>)
+
   return (
-    <>
-      <ul>
-        {list}
-      </ul>
+    <> 
+    <ul>
+    { Accor } 
+    </ul>        
     </>
   )
 }
+
 
 export default List
