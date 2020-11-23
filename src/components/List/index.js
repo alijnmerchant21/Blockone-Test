@@ -91,7 +91,6 @@ function List(props) {
 
     const Accor = blocks.map(e =>
    
-   
     <Accordion
     title={e.id}
     content={
@@ -112,6 +111,8 @@ function List(props) {
       `
     }
     >
+    
+    </Accordion>)
 
   return (
     <> 
