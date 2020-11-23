@@ -10,19 +10,25 @@ Fetch the latest 10 Blocks from API provided.
 **How to run the code:**
 
 *Clone the project on your local machine* <br>
-git clone https://github.com/alijnmerchant21/Blockone-Test.git 
+**git clone** https://github.com/alijnmerchant21/Blockone-Test.git 
+
+![Clone] (https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-23%20at%2010.39.28%20AM.png)
 <br>
 
 *Install Dependencies.* <br>
-npm install
+**npm install**
+
+![Install] (https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-23%20at%2010.42.16%20AM.png)
 <br>
 
 *Run the code* <br>
-npm start 
+**npm start** 
+
+![Start] (https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-23%20at%2010.56.33%20AM.png)
 <br>
 
 *Run the test* <br>
-npm test 
+**npm test** 
 
 
 
@@ -31,7 +37,12 @@ npm test
 *Architecture Overview.*
 
 
-![Architecture](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Blockone_page-0001.jpg)
+![Architecture] (https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Blockone_page-0001.jpg)
+
+
+*On Clicking individual BlockID, it is expanded to display the raw information of Blockchain*
+
+![Information] (https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-23%20at%2010.53.58%20AM.png)
 
 
 
