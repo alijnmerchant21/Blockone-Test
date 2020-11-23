@@ -31,7 +31,7 @@ npm test
 *Architecture Overview.*
 
 
-![Architecture](https://github.com/alijnmerchant21/Personal-ICO-Token/blob/main/Images/Personal%20ICO%20Token.jpg)
+![Architecture](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Blockone_page-0001.jpg)
 
 
 
