@@ -26,6 +26,8 @@ npm test
 
 
 
-**What to expect.**
+**What to expect:**
+
+*Architecture Overview.*
 
 
