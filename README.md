@@ -9,19 +9,19 @@ Fetch the latest 10 Blocks from API provided.
 
 **How to run the code:**
 
-*Clone the project on your local machine* 
+*Clone the project on your local machine* <br>
 git clone https://github.com/alijnmerchant21/Blockone-Test.git 
 <br>
 
-*Install Dependencies.* 
+*Install Dependencies.* <br>
 npm install
 <br>
 
-*Run the code* 
+*Run the code* <br>
 npm start 
 <br>
 
-*Run the test* 
+*Run the test* <br>
 npm test 
 
 
