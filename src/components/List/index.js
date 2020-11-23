@@ -91,12 +91,27 @@ function List(props) {
 
     const Accor = blocks.map(e =>
    
+   
     <Accordion
     title={e.id}
-    content={JSON.stringify(e)}
+    content={
+      
+      `
+      action_mroot: ${e.action_mroot} <br>
+      block_num: ${e.block_num} <br>
+      confirmed: ${e.confirmed} <br>
+      id: ${e.id} <br>
+      new producers - ${e.new_producers} <br>
+      previous: ${e.previous} <br>
+      producer: ${e.producer} <br>
+      producer_signature: ${e.producer_signature} <br>
+      ref_block_prefix: ${e.ref_block_prefix} <br>
+      schedule_version: ${e.schedule_version} <br>
+      timestamp: ${e.timestamp} <br>
+      transaction_mroot: ${e.transaction_mroot}
+      `
+    }
     >
-    
-    </Accordion>)
 
   return (
     <> 
