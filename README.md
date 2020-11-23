@@ -16,16 +16,22 @@ Fetch the latest 10 Blocks from API provided.
 git clone https://github.com/alijnmerchant21/Blockone-Test.git <br>
 
 <br> 
-*Install Dependencies.* <br>
+*Install Dependencies.* 
+<br>
 npm install <br>
 
 <br>
-*Run the code* <br>
-npm start <br>
+*Run the code* 
+<br>
+npm start 
+<br>
 
 <br>
-*Run the test* <br>
-npm test <br>
+*Run the test* 
+<br>
+npm test 
+<br>
+<br>
 
 **What to expect.**
 
