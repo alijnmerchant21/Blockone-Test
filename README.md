@@ -28,7 +28,11 @@ Fetch the latest 10 Blocks from API provided.
 <br>
 
 *Run the test.* <br>
-**npm test** 
+**npm run test** 
+
+![Run Test](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-25%20at%2010.42.07%20PM.png)
+
+![Test Result](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-25%20at%2010.40.47%20PM.png)
 
 
 
