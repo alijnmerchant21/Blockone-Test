@@ -1,11 +1,8 @@
 import React, { useState } from 'react'
-import { JsonRpc } from 'eosjs'
-//import "./accordion.css";
-import "../../index.css";
-import Accordion from "../../components/Accordion";
+import { JsonRpc, RpcError } from 'eosjs'
+import Accordion from "../Accordion";
 
-
-const api = new JsonRpc('https://eos.greymass.com')
+const EOS_API_URL  = new JsonRpc('https://eos.greymass.com') // can be read from configuration file
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -14,51 +11,72 @@ async function delay(fn, ...args) {
   return fn(...args)
 }
 
-const getBlockId = async () => {
+/***
+ * Returns an object containing various details about the blockchain.
+ * @return Promise<GetInfoResult>
+ */
+export async function getHeadBlockId() {
   try {
-    const blockInfo = await api.get_info()
-    console.log(blockInfo.head_block_id)
-    return blockInfo.head_block_id
+    const { head_block_id } = await EOS_API_URL.get_info();
+    return head_block_id
   } catch (err) {
-    throw err.message
+    console.error(`\nCaught exception: `, err.message);
+    if (err instanceof RpcError)
+      console.error(JSON.stringify(err.json, null, 2));
   }
 }
 
-async function getBlockInfo(blockId) {
+/***
+ * Returns an object containing various details about a specific block on the blockchain.
+ * @return Promise<GetBlockResult>
+ */
+export async function getBlockInfo(blockId) {
   try {
-    const blocks = await api.get_block(blockId)
-    return blocks
+    const block = await EOS_API_URL.get_block(blockId);
+    return block;
   } catch (err) {
-    throw err.message
+    console.error(`\nCaught exception: `, err.message);
+    if (err instanceof RpcError)
+      console.error(JSON.stringify(err.json, null, 2));
   }
 }
 
-function List(props) {
+/***
+ * Retrieves the ABI for a contract based on its account name.
+ * @return Promise<GetAbiResult> 
+ */
+export async function getAbiInfo(accountName) {
+  try {
+    const abi = await EOS_API_URL.get_abi(accountName);
+    return abi
+  } catch (err) {
+    console.error(`\nCaught exception: `, err.message);
+    if (err instanceof RpcError)
+      console.log(JSON.stringify(err.json, null, 2));
+  }
+}
+
+function List() {
   const [blocks, setBlocks] = useState([])
   const [show, setShow] = useState(false)
 
   async function fetchData() {
-    console.log("fetching data")
+    console.log("Please wait. Fetching data from 'https://eos.greymass.com'")
     setBlocks([])
     let length = 10
     let data = []
-    
-
-    let blkId;
+ 
     while (length--) {
       await delay(async () => {
-        //let blkId;
-        if (!data.length) {
-          blkId = await getBlockId()
-          const block = await getBlockInfo(blkId)
-          data.unshift(block)
-          console.log(data)
+        if(data.length) {
+          const block = await getBlockInfo(data[data.length - 1].previous);
+          data.push(block);
+        } else {
+          const headBlockId = await getHeadBlockId();
+          const block = await getBlockInfo(headBlockId);
+          data.unshift(block); 
         }
-        else {
-          blkId = data[data.length - 1].previous
-          const block = await getBlockInfo(blkId)
-          data.push(block)
-        }
+
       })
     }
 
@@ -73,29 +91,20 @@ function List(props) {
        Load Data 
       </button>
       <br></br> <br></br> <br></br>
+       Blocks
       {show && <DisplayBlocks blocks={blocks} />}
     </div>
   )
 }
 
  function DisplayBlocks(props) {
-  const blocks = props.blocks
-  let data = '';
+    const blocks = props.blocks 
+    const accor = blocks.map(e =>
 
-  const displayExtraData = (block) => {
-    console.log(block)
-    data = JSON.stringify(block)
-    console.log(data);
-    //alert(data);
-  }
-
-    const Accor = blocks.map(e =>
-   
     <Accordion
     title = {'Block: ' + e.id  + '___' + e.timestamp  + '___' +  e.confirmed}
-    content={
-      
-      `
+    content = { 
+    `
       <div> 
         <div class="block"> <b>Action Mroot:</b>           ${e.action_mroot}        </div>
         <div class="block"> <b>Block Number:</b>           ${e.block_num}           </div>
@@ -109,22 +118,18 @@ function List(props) {
         <div class="block"> <b>Schedule Version:</b>       ${e.schedule_version}    </div>
         <div class="block"> <b>Timestamp:</b>              ${e.timestamp}           </div>
         <div class="block"> <b>Transaction Mroot:</b>      ${e.transaction_mroot}   </div>
-      </div>      
-
-      `
+      </div>
+    `
     }
     >
     
     </Accordion>)
 
   return (
-    <> 
-    <ul>
-    { Accor } 
-    </ul>        
-    </>
+    <> <ul> { accor } </ul> </>
   )
 }
 
 
 export default List
+  
