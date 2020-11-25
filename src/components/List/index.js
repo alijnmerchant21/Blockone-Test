@@ -96,18 +96,21 @@ function List(props) {
     content={
       
       `
-      action_mroot: ${e.action_mroot} <br>
-      block_num: ${e.block_num} <br>
-      confirmed: ${e.confirmed} <br>
-      id: ${e.id} <br>
-      new producers - ${e.new_producers} <br>
-      previous: ${e.previous} <br>
-      producer: ${e.producer} <br>
-      producer_signature: ${e.producer_signature} <br>
-      ref_block_prefix: ${e.ref_block_prefix} <br>
-      schedule_version: ${e.schedule_version} <br>
-      timestamp: ${e.timestamp} <br>
-      transaction_mroot: ${e.transaction_mroot}
+      <div> 
+        <div class="block"> <b>Action Mroot:</b>           ${e.action_mroot}        </div>
+        <div class="block"> <b>Block Number:</b>           ${e.block_num}           </div>
+        <div class="block"> <b>Confirmed:</b>              ${e.confirmed}           </div>
+        <div class="block"> <b>Block Id:</b>               ${e.id}                  </div>
+        <div class="block"> <b>Previous:</b>               ${e.previous}            </div>
+        <div class="block"> <b>Producer:</b>               ${e.producer}            </div>
+        <div class="block"> <b>New Producers:</b>          ${e.new_producers}       </div>
+        <div class="block"> <b>Producer Signature:</b>     ${e.producer_signature}  </div>
+        <div class="block"> <b>Reference Block Prefix:</b> ${e.ref_block_prefix}    </div>
+        <div class="block"> <b>Schedule Version:</b>       ${e.schedule_version}    </div>
+        <div class="block"> <b>Timestamp:</b>              ${e.timestamp}           </div>
+        <div class="block"> <b>Transaction Mroot:</b>      ${e.transaction_mroot}   </div>
+      </div>      
+
       `
     }
     >
