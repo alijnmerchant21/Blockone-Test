@@ -41,7 +41,7 @@ Fetch the latest 10 Blocks from API provided.
 
 *On Clicking individual BlockID, it is expanded to display the raw information of Blockchain*
 
-![Information](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-23%20at%2010.53.58%20AM.png)
+![Information](https://github.com/alijnmerchant21/Blockone-Test/blob/main/Resources/Screen%20Shot%202020-11-25%20at%2010.35.14%20PM.png)
 
 
 
