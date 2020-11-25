@@ -92,7 +92,7 @@ function List(props) {
     const Accor = blocks.map(e =>
    
     <Accordion
-    title={e.id + '    ' + e.timestamp + '    ' + e.confirmed}
+    title = {'Block: ' + e.id  + '___' + e.timestamp  + '___' +  e.confirmed}
     content={
       
       `
