@@ -9,3 +9,8 @@ table {
   border-spacing: 10px;
   border: 0px solid gray;
 }
+
+.block {
+  float:left;
+  clear:left;
+}
