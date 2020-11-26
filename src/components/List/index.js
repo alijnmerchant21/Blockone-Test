@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { JsonRpc, RpcError } from 'eosjs'
 import Accordion from "../Accordion";
 
-const EOS_API_URL  = new JsonRpc('https://eos.greymass.com') // can be read from configuration file
+const EOS_API_URL  = new JsonRpc('https://eos.greymass.com') 
 
 const timeout = ms => new Promise(resolve => setTimeout(resolve, ms))
 
