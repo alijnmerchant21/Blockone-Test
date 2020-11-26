@@ -19,7 +19,7 @@ describe("POST /get_info", () => {
 		// then
 		expect(actual).to.be.a('string');
 		assert.notEqual(actual, undefined, 'headBlockId is not undefined');
-		assert.notEqual(actual, undefined, 'headBlockId is not null');
+		assert.notEqual(actual, null, 'headBlockId is not null');
 	});
 });
 
